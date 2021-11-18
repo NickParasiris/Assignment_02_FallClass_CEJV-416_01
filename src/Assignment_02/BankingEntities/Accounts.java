@@ -113,7 +113,28 @@ public abstract class Accounts {
 
     public abstract BigDecimal deposit();
 
-    public abstract BigDecimal withdrawal();
+    /**
+     * The Account becomes active if the balance is above $25, this is represented as (A)
+     * The Account becomes inactive if the balance drops bellow $25, this is represented as (I).
+     * @param
+     */
+
+    protected void activeInactive()
+    {
+        if (CBalance.compareTo(new BigDecimal("25.00")) > 0)
+        {
+            this.status = 'A';
+        }
+        else
+            this.status = 'I';
+    }
+
+    protected BigDecimal withdrawal(BigDecimal amount)
+    {
+        this.CBalance = this.CBalance.subtract(amount);
+        this.NOfWithdrawals += 1;
+        return this.CBalance;
+    }
 
     public BigDecimal calculateInterest(BigDecimal amount)
     {
@@ -125,6 +146,7 @@ public abstract class Accounts {
 
         return this.CBalance;
     }
+
 
     public abstract void generateMonthlyReport();
 
