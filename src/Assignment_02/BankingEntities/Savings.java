@@ -9,15 +9,14 @@ public class Savings extends Accounts{
     }
 
     @Override
-    public BigDecimal withdrawal(BigDecimal amount)
+    public void withdrawal(BigDecimal amount)
     {
         activeInactive();
         if (getStatus() == 'A')
-            return super.withdrawal(amount);
+            super.withdrawal(amount);
 
         else
-            return new BigDecimal("0.00");
-
+            super.withdrawal(new BigDecimal("0.00"));
     }
 
 

@@ -47,11 +47,11 @@ public abstract class Accounts {
         this.SMBalance = SMBalance;
     }
 
-    public BigDecimal getCMBalance() {
+    public BigDecimal getCBalance() {
         return CBalance;
     }
 
-    public void setCMBalance(BigDecimal CMBalance) {
+    public void setCBalance(BigDecimal CMBalance) {
         this.CBalance = CMBalance;
     }
 
@@ -129,11 +129,10 @@ public abstract class Accounts {
             this.status = 'I';
     }
 
-    protected BigDecimal withdrawal(BigDecimal amount)
+    protected void withdrawal(BigDecimal amount)
     {
         this.CBalance = this.CBalance.subtract(amount);
         this.NOfWithdrawals += 1;
-        return this.CBalance;
     }
 
     public BigDecimal calculateInterest(BigDecimal amount)
