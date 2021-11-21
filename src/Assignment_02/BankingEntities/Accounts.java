@@ -111,23 +111,12 @@ public abstract class Accounts {
         this.status = status;
     }
 
-    public abstract BigDecimal deposit();
-
-    /**
-     * The Account becomes active if the balance is above $25, this is represented as (A)
-     * The Account becomes inactive if the balance drops bellow $25, this is represented as (I).
-     * @param
-     */
-
-    protected void activeInactive()
+    protected void deposit(BigDecimal amount)
     {
-        if (CBalance.compareTo(new BigDecimal("25.00")) > 0)
-        {
-            this.status = 'A';
-        }
-        else
-            this.status = 'I';
+        this.CBalance = this.CBalance.add(amount);
+        this.NOfDeposits += 1;
     }
+
 
     protected void withdrawal(BigDecimal amount)
     {

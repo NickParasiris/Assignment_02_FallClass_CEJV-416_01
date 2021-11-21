@@ -15,6 +15,7 @@ public class BankingProgram {
         s.withdrawal(new BigDecimal("10.00"));
 
         System.out.println(s.getCBalance());
+        System.out.println(s.getStatus());
 
 
 
